@@ -1,18 +1,16 @@
 Abstract
 
-	The goal of this project was to design and build an intelligent faucet using the M68HC11EVB as the microcontroller circuit. It was able to find the hottest and coldest water temperatures, and allowed the user to program desired temperatures and flow rates via menus and prompts on an LCD and keypad while the system ran. Additional features included a keymap programmable keypad, an LCD display, and interrupt driven foreground and background programs. The project worked succesfully.
+The goal of this project was to design and build an intelligent faucet using the M68HC11EVB as the microcontroller circuit. It was able to find the hottest and coldest water temperatures, and allowed the user to program desired temperatures and flow rates via menus and prompts on an LCD and keypad while the system ran. Additional features included a keymap programmable keypad, an LCD display, and interrupt driven foreground and background programs. The project worked succesfully.
 
 Introduction
 
 Hardware
 
-
-
 Software
 
-		The software and flowchart for the final project is located in Appendix A. It was written modularly, and 18 subroutine functions supplimented the main function. There were also five header files to suppliment the main program.
+The software and flowchart for the final project is located in Appendix A. It was written modularly, and 18 subroutine functions supplimented the main function. There were also five header files to suppliment the main program.
 
-	At the start of the main function, the variables are initialized, and the LCD display is initialized by sending four control codes to it that set the display modes. Then the title screen is shown by calling the title() function. It then waits for a key to be pressed. After that, the background interrupt program is started, which updates a portion of the screen that displays the temperature and flow rate,  and controls the motors if necessary. Then the temperature range is found using the range() function. The range() function tells the background program to leave the motors alone, but keep displaying the temperature, as it opens and closes the respective valves for high and low temperatures. When it has found the high and low temperatures, and stored them into the global variables maxt and mint, it displays the temperature range at the bottom of the LCD screen, and closes the valves. Then the function prints "(paused)" and waits for a key to be pressed. Next the menu is displayed, with the high and low temperatures, desired flow rate, desired temperature, actual flow rate, and actual temperature in the menu. The actual flow rate and temperature are being updated in real time in the corner at this point, while the menu is waiting for a key to be pressed. The menu looks like  this:
+At the start of the main function, the variables are initialized, and the LCD display is initialized by sending four control codes to it that set the display modes. Then the title screen is shown by calling the title() function. It then waits for a key to be pressed. After that, the background interrupt program is started, which updates a portion of the screen that displays the temperature and flow rate,  and controls the motors if necessary. Then the temperature range is found using the range() function. The range() function tells the background program to leave the motors alone, but keep displaying the temperature, as it opens and closes the respective valves for high and low temperatures. When it has found the high and low temperatures, and stored them into the global variables maxt and mint, it displays the temperature range at the bottom of the LCD screen, and closes the valves. Then the function prints "(paused)" and waits for a key to be pressed. Next the menu is displayed, with the high and low temperatures, desired flow rate, desired temperature, actual flow rate, and actual temperature in the menu. The actual flow rate and temperature are being updated in real time in the corner at this point, while the menu is waiting for a key to be pressed. The menu looks like  this:
 
    1) set flow (00%)	2) range   F=00% T=23o
 3) set temp (00o)	Tmax=45o Tmin=09o        
